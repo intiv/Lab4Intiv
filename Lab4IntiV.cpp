@@ -7,9 +7,9 @@ using std::cin;
 using std::endl;
 
 void factorizar(int*,int);
+void conjugar(char*,int);
 
 int main(int argc, char* argv[]){
-	
 	int resp=1;
 	while(resp){
 		int op;
@@ -30,7 +30,11 @@ int main(int argc, char* argv[]){
 			factorizar(funcion,size);
 			delete[] funcion;
 		}else if(op==2){
-			
+			char* palabra=new char[35];
+			cout<<"Ingrese verbo"<<endl;
+			cin>>palabra;
+			conjugar(palabra, strlen(palabra));
+			delete[] palabra;	
 
 		}else if(op==3){
 			cout<<"Gracias por usar este programa! =D"<<endl;
@@ -57,4 +61,17 @@ void factorizar(int* func,int size){
 		x1*= -1;
 		cout<<func[0]<<"x^2 + ("<<func[1]<<") + ("<<func[2]<<") = (x + ("<<x2<<"))(x + ("<<x1<<"))"<<endl;
 	}
+}
+
+void conjugar(char* word,int size){
+	char* raiz=new char[size-2];
+	strncpy(raiz,word,size-2);
+	cout<<"Presente: "<<raiz<<"o"<<endl;
+	cout<<"Futuro: " << word<<"e"<<endl;
+	if(word[size-2]=='e'||word[size-2]=='i'){
+		cout<<"Pasado: "<<raiz<<"i"<<endl;
+	}else{
+		cout<<"Pasado: "<<raiz<<"e"<<endl;
+	}
+	delete[] raiz;
 }
