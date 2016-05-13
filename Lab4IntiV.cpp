@@ -64,14 +64,18 @@ void factorizar(int* func,int size){
 }
 
 void conjugar(char* word,int size){
-	char* raiz=new char[size-2];
-	strncpy(raiz,word,size-2);
-	cout<<"Presente: "<<raiz<<"o"<<endl;
-	cout<<"Futuro: " << word<<"e"<<endl;
-	if(word[size-2]=='e'||word[size-2]=='i'){
-		cout<<"Pasado: "<<raiz<<"i"<<endl;
+	if(word[size-1]=='r'&&(word[size-2]=='a'||word[size-2]=='i'||word[size-2]=='e')){
+		char* raiz=new char[size-2];
+		strncpy(raiz,word,size-2);
+		cout<<"Presente: "<<raiz<<"o"<<endl;
+		cout<<"Futuro: " << word<<"e"<<endl;
+		if(word[size-2]=='e'||word[size-2]=='i'){
+			cout<<"Pasado: "<<raiz<<"i"<<endl;
+		}else{
+			cout<<"Pasado: "<<raiz<<"e"<<endl;
+		}
+		delete[] raiz;
 	}else{
-		cout<<"Pasado: "<<raiz<<"e"<<endl;
+		cout<<"No es un verbo"<<endl;
 	}
-	delete[] raiz;
 }
