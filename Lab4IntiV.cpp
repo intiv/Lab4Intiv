@@ -43,12 +43,18 @@ int main(int argc, char* argv[]){
 }
 
 void factorizar(int* func,int size){
-	double x2, x1;
-	x2=(((-1*func[1])+sqrt(pow(func[1],2)-4*((func[0]*func[2]))))/(2*func[0]));
-	x2*= -1;
-	
-	x1=(((-1*func[1])-sqrt(pow(func[1],2)-4*((func[0]*func[2]))))/(2*func[0]));
-	x1*= -1;
-	cout<<func[0]<<"x^2 + ("<<func[1]<<") + ("<<func[2]<<") = (x + ("<<x2<<"))(x + ("<<x1<<"))"<<endl;
-
+	if(func[0]==0){
+		if(func[1]==0){
+			cout<<func[0]<<"x^2 + " <<func[1]<<"x + "<<func[2]<<" = "<<func[2]<<endl;
+		}else{
+			cout<<func[0]<<"x^2 + "<<func[1]<<"x + "<<func[2]<<" = "<<func[1]<<"x + "<<func[2]<<endl;
+		}
+	}else{
+		double x2, x1;
+		x2=(((-1*func[1])+sqrt(pow(func[1],2)-4*((func[0]*func[2]))))/(2*func[0]));
+		x2*= -1;	
+		x1=(((-1*func[1])-sqrt(pow(func[1],2)-4*((func[0]*func[2]))))/(2*func[0]));
+		x1*= -1;
+		cout<<func[0]<<"x^2 + ("<<func[1]<<") + ("<<func[2]<<") = (x + ("<<x2<<"))(x + ("<<x1<<"))"<<endl;
+	}
 }
