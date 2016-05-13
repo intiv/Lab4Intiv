@@ -24,6 +24,9 @@ int main(int argc, char* argv[]){
 			cin>>funcion[1];
 			cout<<"Ingrese c:"<<endl;
 			cin>>funcion[2];
+			for(int i=0;i<size;i++){
+				cout<<i<<": "<<funcion[i]<<endl;
+			}
 			factorizar(funcion,size);
 			delete[] funcion;
 		}else if(op==2){
@@ -40,12 +43,12 @@ int main(int argc, char* argv[]){
 }
 
 void factorizar(int* func,int size){
-	int x2, x1;
-	x2=((-1*func[1])+sqrt(pow(func[1],2)-4*((func[1]*func[2])))/(2*func[0]));
-	x2*=-1;
+	double x2, x1;
+	x2=(((-1*func[1])+sqrt(pow(func[1],2)-4*((func[0]*func[2]))))/(2*func[0]));
+	x2*= -1;
 	
-	x1=((-1*func[1])-sqrt(pow(func[1],2)-4*((func[1]*func[2])))/(2*func[0]));
-	x1*=-1;
+	x1=(((-1*func[1])-sqrt(pow(func[1],2)-4*((func[0]*func[2]))))/(2*func[0]));
+	x1*= -1;
 	cout<<func[0]<<"x^2 + ("<<func[1]<<") + ("<<func[2]<<") = (x + ("<<x2<<"))(x + ("<<x1<<"))"<<endl;
 
 }
